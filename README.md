@@ -37,6 +37,7 @@
 
 * Application is deployed on AWS EC2 instance here - http://ec2-13-60-205-86.eu-north-1.compute.amazonaws.com:8088/
 * Example API - http://ec2-13-60-205-86.eu-north-1.compute.amazonaws.com:8088/customers/all?key=key123
+* Swagger API Documentation - http://ec2-13-60-205-86.eu-north-1.compute.amazonaws.com:8088/swagger-ui/index.html#
 * As the application is integrated with the role-base access, please use below keys for accessing the APIs. 
 Customer - key123
 Admin - key456
