@@ -30,11 +30,17 @@
 
 1. clone our Project into your local machine.
       - open any terminal
-      - git clone 
+      - git clone https://github.com/jsp268/MultiBite-Food-Delivery-App.git
 2. Open Your STS
 3. Goto File -> Import -> Select Maven -> Choose Existing Maven -> Click on browse -> Choose the project location -> Select the project -> Finish
 4. All done, good to go!
 
+* Application is deployed on AWS EC2 instance here - http://ec2-13-60-205-86.eu-north-1.compute.amazonaws.com:8088/
+* Example API - http://ec2-13-60-205-86.eu-north-1.compute.amazonaws.com:8088/customers/all?key=key123
+* As the application is integrated with the role-base access, please use below keys for accessing the APIs. 
+Customer - key123
+Admin - key456
+* If you're using a local database instead of AWS RDS, use the login API to generate the key dynamically
 * Before running the API server, you should update the database config inside the application.properties file. 
 * Update the port number, username and password as per your local database config.
 
