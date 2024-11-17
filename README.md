@@ -70,6 +70,7 @@ Admin - key456
 ## ER Diagram
 --Add ER diagram here.
 
+![ER Diagram](erdiagram.png)
 
 ## Contributors
 
