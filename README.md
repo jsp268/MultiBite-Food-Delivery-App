@@ -59,7 +59,8 @@ Admin - key456
     spring.jpa.show-sql=true
     
     #validation exception activate
-    spring.mvc.throw-exception-if-no-handler-found=true
+    spring.mvc.throw-exception-if-no-handler-found=true![image](https://github.com/user-attachments/assets/a54cb98c-965d-466c-ad80-2c6c8eb91bb7)
+
     spring.web.resources.add-mappings=false
     
     #enable swagger
@@ -69,6 +70,7 @@ Admin - key456
 
 ## ER Diagram
 --Add ER diagram here.
+![Uploading image.png…]()
 
 
 ## Contributors
