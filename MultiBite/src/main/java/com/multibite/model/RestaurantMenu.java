@@ -28,9 +28,6 @@ public class RestaurantMenu {
     @JoinColumn(name = "restaurant_menu_id", referencedColumnName = "menuId")  
     private List<ItemDTO> restaurantMenuList;
 
-    public RestaurantMenu() {
-    }
-
     public RestaurantMenu(Long id, List<ItemDTO> restaurantMenuList) {
         this.menuId = id;
         this.restaurantMenuList = restaurantMenuList;

@@ -38,9 +38,6 @@ public class RestaurantOwner {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "restaurant_menu_id", referencedColumnName = "menuId")
     private RestaurantMenu restaurantMenu;
-    
- // Default constructor
-    public RestaurantOwner() {}
 
     // Parameterized constructor
     public RestaurantOwner(String email, String password, String name, Restaurant restaurant, 
