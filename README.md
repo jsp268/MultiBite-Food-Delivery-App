@@ -69,8 +69,6 @@ Admin - key456
 ```
 
 ## ER Diagram
---Add ER diagram here.
-![Uploading image.png…]()
 
 ![ER Diagram](erdiagram.png)
 
