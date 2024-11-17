@@ -11,10 +11,12 @@ import com.multibite.exception.RestaurantOwnerException;
 import com.multibite.model.Admin;
 import com.multibite.model.CurrentUserSession;
 import com.multibite.model.Customer;
+import com.multibite.model.DeliveryPersonnel;
 import com.multibite.model.RestaurantOwner;
 import com.multibite.model.Login;
 import com.multibite.model.LoginDTO;
 import com.multibite.repository.CustomerRepo;
+import com.multibite.repository.DeliveryPersonnelRepo;
 import com.multibite.repository.RestaurantOwnerRepo;
 import com.multibite.repository.AdminRepo;
 import com.multibite.repository.CurrentUserSessionRepo;
@@ -35,6 +37,9 @@ public class LoginServiceImpl implements LoginService {
 
 	@Autowired
 	private CurrentUserSessionRepo sessionRepo;
+	
+	@Autowired
+	private DeliveryPersonnelRepo deliverypersonnelRepo;
 
 	@Override
 	public String loginAccount(LoginDTO loginDTO) throws LoginException, RestaurantOwnerException {
@@ -111,9 +116,36 @@ public class LoginServiceImpl implements LoginService {
 				sessionRepo.save(currentUserSession);
 				return "Login Sucessufull!";
 			}
+
 			else {
 				throw new LoginException("Please Enter a valid password");
 			}
+		}		
+		else if (loginDTO.getRole().equalsIgnoreCase("deliverypersonnel")) {
+			DeliveryPersonnel deliverypersonnel = deliverypersonnelRepo.findByEmail(loginDTO.getEmail());
+			if (deliverypersonnel == null)
+				throw new LoginException("Invalid email");
+
+			if (deliverypersonnel.getPassword().equals(loginDTO.getPassword())) {
+
+				CurrentUserSession cuurSession = sessionRepo.findByEmail(loginDTO.getEmail());
+
+				if (cuurSession != null)
+					throw new LoginException("User already logged-In!");
+
+				CurrentUserSession currentUserSession = new CurrentUserSession();
+				currentUserSession.setEmail(loginDTO.getEmail());
+				currentUserSession.setLoginDateTime(LocalDateTime.now());
+				currentUserSession.setRole("deliverypersonnel");
+				String privateKey = RandomString.make(6);
+				currentUserSession.setPrivateKey(privateKey);
+
+				sessionRepo.save(currentUserSession);
+				return "Login Sucessufull!";
+			}else {
+				throw new LoginException("Please Enter a valid password");
+			}
+			
 		}
 		return null;
 	}
