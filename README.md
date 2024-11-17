@@ -72,6 +72,10 @@ Admin - key456
 
 ![ER Diagram](erdiagram.png)
 
+## Application Workflow
+
+![Workflow](workflow.png)
+
 ## Contributors
 
 * JELLA SAI PRANEETH 2023mt93395
